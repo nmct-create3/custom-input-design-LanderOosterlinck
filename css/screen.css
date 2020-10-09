@@ -1,29 +1,29 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
- 
+
 @font-face {
     font-family: "Inter UI Web";
     font-weight: 400;
     src: url("../fonts/Inter-UI-Regular.woff2") format("woff2")
 }
- 
+
 @font-face {
     font-family: "Inter UI Web";
     font-weight: 600;
     src: url("../fonts/Inter-UI-Medium.woff2") format("woff2")
 }
- 
+
 @font-face {
     font-family: "Inter UI Web";
     font-weight: 700;
     src: url("../fonts/Inter-UI-Bold.woff2") format("woff2")
 }
- 
+
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
- 
+
 :root {
     /* colors */
     --color-alpha-xx-light: #DCEAFF;
@@ -43,85 +43,74 @@
     --color-neutral-xx-dark: #4b4c60;
     --color-neutral-xxx-dark: #35374d;
     --color-neutral-xxxx-dark: #20223a;
+    --global-color-alpha-x-transparent: rgba(51, 133, 255, .2);
 
-    --global-color-alpha-x-transparent: rgba(51,133,255.2)
- 
     /* Shadows */
     --shadow-color: #20223a15;
     --inset-shadow: inset 0 1px 1px var(--shadow-color);
- 
+
     /* border radius */
     --radius: 3px;
- 
-    /* transitions */
-    --transition-alpha: .1s ease-out;
-   
-    /* input styles */
-    --global-input-backgroundColor: White;
-    --global-input-color: var(--global-color-neutral-xxxx-dark);
-    --global-input-borderColor: var(--global-color-neutral-xxx-light);
-    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
-    --global-input-focus-borderColor: var(--global-color-alpha);
-    --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
-    --global-input-boxShadow--focus: 0 0 0 3px #3385ff33;
 
+    /* transitions */
+	--transition-alpha: .1s ease-out;
+	
+	/* input styles */
+	--global-input-backgroundColor: White;
+	--global-input-color: var(--global-color-neutral-xxxx-dark);
+	--global-input-borderColor: var(--global-color-neutral-xxx-light);
+	--global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+	--global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-boxShadow--focus: 0 0 0 3px #3385FF;
+    
+    /*errorstate*/
+    --global-error-color: #F33;
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: "Inter UI Web", Helvetica, arial, sans-serif;
+    color: var(--color-neutral-xxxx-dark);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-neutral-xxxx-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: var(--color-neutral-xxxx-dark);
+    }
+}
+
+:root {
     --global-page-color: var(--color-neutral-xxxx-dark);
     --global-page-backgroundColor: var(--color-neutral-xxxx-light);
-    --global-page-Card-Color: white;
-    --global-page-label-color: var(--color-neutral-x-dark);
-    --global-page-input-text-color: var(--color-neutral-xxxx-dark);
-    --global-page-input-color: white;
-    --global-page-hover-1: var(--color-neutral-xx-light);
-    --global-page-hover-2: var(--color-neutral-x-light);
-    --global-page-border-top: var(--color-neutral-xxx-light);
-    --global-page-border: var(--color-neutral-xxx-light);
-    --global-page-border-2: var(--color-alpha-x-light);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --global-page-color: White;
         --global-page-backgroundColor: var(--color-neutral-xxxx-dark);
-        --global-page-Card-Color: var(--color-neutral-xxx-dark);
-        --global-page-label-color: var(--color-neutral-x-light);
-        --global-page-input-color: var(--color-neutral-xxxx-dark);
-        --global-page-hover-1: var(--color-alpha);
-        --global-page-hover-2: var(--color-alpha);
-        --global-page-border-top: var(--color-neutral-xxxx-dark);
-        --global-page-border: var(--color-neutral-xxxx-dark);
-        --global-page-border-2: var(--color-neutral-xxxx-dark);
-        --global-page-input-text-color: var(--color-neutral-dark);
-    }
-    .c-logo {
-        --logo__path--1--fill: White;
-        --logo__path--2--fill: var(--logo__path--1--fill);
-        --logo__path--3--fill: var(--logo__path--1--fill);
-    }
-    .c-custom-option__fake-input {
-        background-color: var(--color-neutral-xxxx-dark);
     }
 }
 
 
- 
-/*------------------------------------*\
-#GENERIC
-\*------------------------------------*/
- 
-/*
-    Generic: Page
-    ---
-    Global page styles + universal box-sizing:
-*/
- 
+
 html {
-    font-size: 16px;
-    line-height: 1.5;
-    font-family: "Inter UI Web", Helvetica, arial, sans-serif;
     color: var(--global-page-color); 
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     background-color: var(--global-page-backgroundColor);
 }
 
@@ -131,76 +120,70 @@ html {
     box-sizing: inherit;
 }
 
-/* Dark mode */
-
- 
- 
 /*
 * Remove text-shadow in selection highlight:
 * https://twitter.com/miketaylr/status/12228805301
 *
 * Customize the background color to match your design.
 */
- 
+
 ::-moz-selection {
     background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
- 
+
 ::selection {
     background: var(--color-alpha);
     color: white;
     text-shadow: none;
 }
 
-
- 
 /*------------------------------------*\
 #Elements
 \*------------------------------------*/
- 
+
 /*
 Elements: Images
 ---
 Default markup for images to make them responsive
 */
- 
+
 img {
     max-width: 100%;
     vertical-align: top;
 }
- 
+
 /*
     Elements: typography
     ---
     Default markup for typographic elements
 */
- 
+
 h1,
 h2,
 h3 {
     font-weight: 700;
 }
- 
+
 h1 {
     font-size: 36px;
     line-height: 48px;
     margin: 0 0 24px;
 }
- 
+
 h2 {
     font-size: 32px;
     line-height: 40px;
     margin: 0 0 24px;
 }
- 
+
 h3 {
     font-size: 26px;
     line-height: 32px;
     margin: 0 0 24px;
 }
- 
+
 h4,
 h5,
 h6 {
@@ -209,7 +192,7 @@ h6 {
     line-height: 24px;
     margin: 0 0 24px;
 }
- 
+
 p,
 ol,
 ul,
@@ -219,43 +202,43 @@ address,
 figure {
     margin: 0 0 24px;
 }
- 
+
 ul,
 ol {
     padding-left: 24px;
 }
- 
+
 li ul,
 li ol {
     margin-bottom: 0;
 }
- 
+
 blockquote {
     font-style: normal;
     font-size: 23px;
     line-height: 32px;
     margin: 0 0 24px;
 }
- 
+
 blockquote * {
     font-size: inherit;
     line-height: inherit;
 }
- 
+
 figcaption {
     font-weight: 400;
     font-size: 12px;
     line-height: 16px;
     margin-top: 8px;
 }
- 
+
 hr {
     border: 0;
     height: 1px;
     background: LightGrey;
     margin: 0 0 24px;
 }
- 
+
 a {
     transition: all var(--transition-alpha);
     color: var(--color-alpha);
@@ -263,41 +246,41 @@ a {
     outline-width: medium;
     outline-offset: 2px;
 }
- 
+
 a:visited,
 a:active {
     color: var(--color-alpha);
 }
- 
+
 a:hover,
 a:focus {
     color: var(--color-alpha-light);
 }
- 
+
 label,
 input {
     display: block;
 }
- 
+
 input::placeholder {
     color: var(--color-neutral-x-light);
 }
- 
+
 /*------------------------------------*\
 #OBJECTS
 \*------------------------------------*/
- 
+
 /*
     Objects: Row
     ---
     Creates a horizontal row that stretches the viewport and adds padding around children
 */
- 
+
 .o-row {
     position: relative;
     padding: 24px 24px 0;
 }
- 
+
 .o-row--login {
     min-height: 100vh;
     display: -webkit-flex;
@@ -306,78 +289,78 @@ input::placeholder {
     -ms-align-items: center;
     align-items: center;
 }
- 
+
 .o-row--beta {
     background-color: var(--color-alpha);
     background-image: linear-gradient(to bottom right, var(--color-alpha-light), var(--color-alpha-dark));
 }
- 
+
 /* size modifiers */
- 
+
 .o-row--lg {
     padding-top: 48px;
     padding-bottom: 24px;
 }
- 
+
 .o-row--xl {
     padding-top: 72px;
     padding-bottom: 48px;
 }
- 
+
 @media (min-width: 768px) {
     .o-row {
         padding-left: 48px;
         padding-right: 48px;
     }
 }
- 
+
 @media (min-width: 992px) {
     .o-row--xl {
         padding-top: 96px;
         padding-bottom: 72px;
     }
 }
- 
+
 /*
     Objects: Container
     ---
     Creates a horizontal container that sets de global max-width
 */
- 
+
 .o-container {
     margin-left: auto;
     margin-right: auto;
     max-width: 79.5em; /* 79.5 * 16px = 1272 */
     width: 100%;
 }
- 
+
 /*
     Objects: section
     ---
     Creates vertical whitespace between adjacent sections inside a row
 */
- 
+
 .o-section {
     position: relative;
 }
- 
+
 .o-section + .o-section {
     padding-top: 24px;
 }
- 
+
 @media (min-width: 768px) {
     .o-section--lg + .o-section--lg,
     .o-section--xl + .o-section--xl {
         padding-top: 48px;
     }
 }
- 
+
 @media (min-width: 992px) {
     .o-section--xl + .o-section--xl {
         padding-top: 72px;
     }
 }
- 
+
 /*
     Objects: Layout
     ---
@@ -385,141 +368,141 @@ input::placeholder {
     contains the basic structural elements, but classes should be complemented
     with width utilities
 */
- 
+
 .o-layout {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
 }
- 
+
 .o-layout__item {
     width: 100%;
 }
- 
+
 /* gutter modifiers, these affect o-layout__item too */
- 
+
 .o-layout--gutter {
     margin: 0 -12px;
 }
- 
+
 .o-layout--gutter > .o-layout__item {
     padding: 0 12px;
 }
- 
+
 .o-layout--gutter-sm {
     margin: 0 -6px;
 }
- 
+
 .o-layout--gutter-sm > .o-layout__item {
     padding: 0 6px;
 }
- 
+
 .o-layout--gutter-lg {
     margin: 0 -24px;
 }
- 
+
 .o-layout--gutter-lg > .o-layout__item {
     padding: 0 24px;
 }
- 
+
 .o-layout--gutter-xl {
     margin: 0 -48px;
 }
- 
+
 .o-layout--gutter-xl > .o-layout__item {
     padding: 0 48px;
 }
- 
+
 /* reverse horizontal row modifier */
- 
+
 .o-layout--row-reverse {
     flex-direction: row-reverse;
 }
- 
+
 /* Horizontal alignment modifiers*/
- 
+
 .o-layout--justify-start {
     justify-content: flex-start;
 }
- 
+
 .o-layout--justify-end {
     justify-content: flex-end;
 }
- 
+
 .o-layout--justify-center {
     justify-content: center;
 }
- 
+
 .o-layout--justify-space-around {
     justify-content: space-around;
 }
- 
+
 .o-layout--justify-space-evenly {
     justify-content: space-evenly;
 }
- 
+
 .o-layout--justify-space-between {
     justify-content: space-between;
 }
- 
+
 /* Vertical alignment modifiers */
- 
+
 .o-layout--align-start {
     align-items: flex-start;
 }
- 
+
 .o-layout--align-end {
     align-items: flex-end;
 }
- 
+
 .o-layout--align-center {
     align-items: center;
 }
- 
+
 .o-layout--align-baseline {
     align-items: baseline;
 }
- 
+
 /* Vertical alignment modifiers that only work if there is one than one flex item */
- 
+
 .o-layout--align-content-start {
     align-content: start;
 }
- 
+
 .o-layout--align-content-end {
     align-content: end;
 }
- 
+
 .o-layout--align-content-center {
     align-content: center;
 }
- 
+
 .o-layout--align-content-space-around {
     align-content: space-around;
 }
- 
+
 .o-layout--align-content-space-between {
     align-content: space-between;
 }
- 
+
 /*
     Objects: List
     ---
     Small reusable object to remove default list styling from lists
 */
- 
+
 .o-list {
     list-style: none;
     padding: 0;
 }
- 
+
 /*
     Object: Button reset
     ---
     Small button reset object
 */
- 
+
 .o-button-reset {
     border: none;
     margin: 0;
@@ -527,28 +510,28 @@ input::placeholder {
     width: auto;
     overflow: visible;
     background: transparent;
- 
+
     /* inherit font & color from ancestor */
     color: inherit;
     font: inherit;
- 
+
     /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
     line-height: normal;
- 
+
     /* Corrects font smoothing for webkit */
     -webkit-font-smoothing: inherit;
     -moz-osx-font-smoothing: inherit;
- 
+
     /* Corrects inability to style clickable `input` types in iOS */
     -webkit-appearance: none;
 }
- 
+
 /*
     Object: Hide accessible
     ---
     Accessibly hide any element
 */
- 
+
 .o-hide-accessible {
     position: absolute;
     width: 1px;
@@ -559,17 +542,17 @@ input::placeholder {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
- 
+
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
- 
+
 /*
     Component: Logo
     ---
     Website main logo
 */
- 
+
 .c-logo {
     height: 24px;
     display: flex;
@@ -577,79 +560,109 @@ input::placeholder {
     justify-content: center;
     margin-bottom: 48px;
 }
- 
+
 .c-logo__symbol {
     height: 100%;
 }
- 
+
 .c-logo__path--1 {
-    fill: var(--logo__path--1--fill, var(--color-neutral-xxxx-dark));
+    fill: var(--logo__path--1--fill, var(--global-color-neutral-xxxx-dark));
   }
   
   .c-logo__path--2 {
-    fill: var(--logo__path--2--fill, var(--color-alpha));
+    fill: var(--logo__path--2--fill, var(--global-color-alpha));
   }
   
   .c-logo__path--3 {
-    fill: var(--logo__path--3--fill, var(--color-alpha-x-dark));
+    fill: var(--logo__path--3--fill, var(--global-color-alpha-x-dark));
   }
- 
+
 /* Light logo alternative */
- 
+
 .c-logo--light .c-logo__path {
     fill: white;
 }
- 
+
+
+@media (prefers-color-scheme: dark) {
+    .c-logo {
+      --logo__path--1--fill: White;
+      --logo__path--2--fill: var(--logo__path--1--fill);
+      --logo__path--3--fill: var(--logo__path--1--fill);
+    }
+  }
 /*
     Component: Card
     ---
     Card with box shadow
 */
- 
+
 .c-card {
-    background-color: var(--global-page-Card-Color);
+    background-color: white;
     margin-bottom: 24px;
     border-radius: var(--radius);
     box-shadow: 0 0 0 1px rgba(0,0,0, 0.05), 0 2px 4px rgba(0,0,0,.075);
     overflow: hidden;
 }
- 
+
 /* Add padding to child for more flexibility */
 .c-card__body,
 .c-card__footer {
     padding: 24px 24px 0;
     overflow: auto; /* Fix margin collapse */
 }
- 
+
 .c-card__footer {
     text-align: center;
-    border-top: 1px solid var(--global-page-border-top);
-    background-color: var(--global-page-Card-Color);
+    border-top: 1px solid var(--color-neutral-xxx-light);
+    background-color: var(--footer__path--1--fill, var(--global-color-neutral-xxxx-dark));
 }
- 
+
+
+@media (prefers-color-scheme: dark) {
+    .c-card__footer {
+      --footer__path--1--fill: #35374D;
+      border-top:1px solid #20223A;
+    }
+  }
+
+
+
+
 .c-card__title {
     text-align: center;
     font-size: 18px;
     line-height: 24px;
     font-weight: 600;
 }
- 
+
 @media (min-width: 27em) {
     .c-card__body {
         padding: 48px 48px 24px;
     }
- 
+
     .c-card__title {
         margin-bottom: 48px;
     }
 }
- 
+
+.c-card__body {
+    background-color: var(--body__path--1--fill, var(--global-color-neutral-xxxx-dark));
+      
+}
+
+@media (prefers-color-scheme: dark) {
+    .c-card__body {
+      --body__path--1--fill: #35374D;
+    }
+  }
+
 /*
     Component: Forms
     ---
     Everything form related here
 */
- 
+
 .c-form-field--option {
     display: -webkit-flex;
     display: -ms-flex;
@@ -657,22 +670,23 @@ input::placeholder {
     -ms-align-items: center;
     align-items: center;
 }
- 
+
 /*
     Component: Input
     ---
     Class to put on all input="text" like form inputs
 */
- 
+
 .c-input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     width: 100%;
-    border: 1px solid var(--global-page-border);
+    border: 1px solid var(--input__path--0--border, var(--color-neutral-xxx-light));
     border-radius: var(--radius);
-    color: var(--global-page-input-text-color);
-    background-color: var(--global-page-input-color);
+    color: var(--input__font,var(--color-neutral-xxxx-dark));
+    
+    background-color:var(--input__path--1--fill, var(--global-color-neutral-xxxx-dark));;
     font-family: inherit;
     font-size: 16px;
     line-height: 24px;
@@ -681,47 +695,63 @@ input::placeholder {
     box-shadow: var(--inset-shadow);
     transition: border var(--transition-alpha);
 }
- 
+
+
+
+
+
+
+
+
 .c-input:hover {
-    border-color: var(--global-page-hover-1);
+    border-color: var(--input__path--1--border,var(--color-alpha-xx-light) );
 }
- 
+
 .c-input:focus,
 .c-input:active {
-    border-color: var(--global-page-hover-2);
-    box-shadow: 0 0 0 3px var(--global-page-hover-1);
+    border-color: var(--input__path--1--border), var(--color-alpha-x-light, );
+    box-shadow: 0 0 0 3px var(--input__path--1--border,var(--color-alpha-xx-light));
 }
- 
+
 /* option input for checkboxes and radio buttons */
- 
+
 .c-input-option {
     margin-right: 8px;
 }
- 
+
+@media (prefers-color-scheme: dark) {
+    .c-input {
+      --input__path--1--fill: #20223A;
+      --input__path--0--border: #20223A;
+      --input__path--1--border: #3385FF;
+      --input__font: white;
+    }
+  }
+
 /*
     Component: Label
     ---
     Class to put on all form labels
 */
- 
+
 .c-label {
     margin-bottom: 0;
     padding-bottom: 8px;
     font-size: 14px;
     line-height: 16px;
-    color: var(--global-page-label-color);
+    color: var(--color-neutral-x-dark);
 }
- 
+
 .c-label--option {
     padding-bottom: 0;
 }
- 
+
 /*
     Component: Button
     ---
     Class to put on form buttons or
 */
- 
+
 .c-button {
     font-size: 16px;
     font-weight: 700;
@@ -735,346 +765,379 @@ input::placeholder {
     outline: none;
     transition: all var(--transition-alpha);
 }
- 
+
 .c-button:hover {
     background-color: var(--color-alpha-light);
 }
- 
+
 .c-button:focus {
     background-color: var(--color-alpha);
     box-shadow: 0 0 0 3px var(--color-alpha-xx-light);
 }
- 
+
 .c-button:active {
     background-color: var(--color-alpha-dark);
     box-shadow: none;
 }
- 
+
 /*
     Component: Option list
     ---
- 
+
 */
- 
+
+
+
 .c-option-list {
-    margin-bottom: 24px;
+
 }
- 
+
 .c-option-list__item {
-    margin-bottom: 12px;
+
 }
- 
+
 /*
     Component: Custom options
     ---
     Custom checkboxes & radio buttons
 */
+.c-option--hidden:checked + .c-custom-option {
 
-.c-option--hidden:checked + .c-custom-option { /* (label) */
-    /* background-color: red; */
-}
+      /*background-color: red;*/
+  }
 
 .c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
-    /* fill: blue; */
-    opacity: 1;
-    transform: scale(1);
+      /*fill: blue;*/
+      opacity: 1;
+      transform: scale(1);
+
 }
 
 .c-custom-option {
     display: flex;
+    
+    
+}
+li + li {
+    padding-top: 10px;
 }
 
-.c-custom-option__symbol {
-    /* opacity: 0; */
-    display: block;
-    opacity: 100;
-    transform: scale(0);
-    will-change: opacity, transform;
-    transition: opacity 200ms ease-out, transform 200ms ease-out;
-}
-
-.c-custom-option__fake-input {
+.c-custom-option__fake-input{
     display: flex;
-    width: 16px;
     height: 16px;
-    border: 1px solid var(--global-page-border-2);
+    width: 16px;
+    border: 1px solid var(--color-alpha-x-dark);
     margin-right: 8px;
     box-shadow: var(--inset-shadow);
     align-items: center;
     justify-content: center;
+
+}
+
+.c-custom-option__symbol{
+    display: block;
+    opacity: 0;
+    transform:scale(0);
+    will-change: opacity, transform;
+    transition: opacity 300ms ease-out, transform 300ms cubic-bezier(0.56, -0.5, 0.4, 1.68);
+    
+
 }
 
 .c-custom-option__fake-input--checkbox {
     border-radius: 3px;
-} 
-
+}
 .c-custom-option__fake-input--radio {
     border-radius: 100%;
 }
 
+/* Hide the actual input with the class .o-hide-accessible */
+
+/* checked state */
 .c-custom-option__fake-input--checkbox .c-custom-option__symbol {
-    width: 10px;
-    height: 10px;
     fill: var(--color-alpha);
-}
+
+    width: 10px;
+    height:10px;
+
+  }
   
 .c-custom-option__fake-input--radio .c-custom-option__symbol {
+    background-color: var(--color-alpha);
+
     width: 6px;
-    height: 6px;
+    height:6px;
     border-radius: 100%;
-    background-color: var(--color-alpha)
-}
 
-.c-option--hidden:focus + .c-custom-option .c-custom-option__fake-input,
-.c-option--hidden:active + .c-custom-option .c-custom-option__fake-input {
+  }
+.c-option--hidden:focus + .c-custom-option .c-custom-option__fake-input, 
+.c-option--hidden:active + .c-custom-option .c-custom-option__fake-input{
     border-color: var(--color-alpha-x-light);
-    box-shadow: var(--global-input-boxShadow--focus)
+    box-shadow: var(--global-input-boxShadow--focus);
 }
 
-/* TOGGLE */
 
 .c-custom-toggle {
-    --toggle-translateX: 0;
-    --toggle-borderColor: var(--color-neutral-xxx-light);
-    --toggle-backgroundColor: var(--color-neutral-xxxx-light);
+    --toggle-translateX:0;
+    --toggle-borderColor:var(--color-neutral-xxx-light) ; 
+    --toggle-backgroundColor: var(--color-neutral-xxx-light) ; 
 
-    --toggle-boxShadow: 0 0 0 0; /* standaard 'lege' box-shadow */
-    --toggle-boxShadowColor: var(--global-color-alpha-x-transparent);
-
+    --toggle-boxShadow: 0 0 0 0 ; /* lege standard box*shadow*/
+    --toggle-boxShadowColor: var(--global-color-alpha-x-transparent) ; 
     display: flex;
     align-items: center;
+    
+
 }
 
-.c-custom-toggle__fake-input {
+.c-custom-toggle__fake-input{
     display: block;
     width: 48px;
     height: 24px;
 
-    margin-right: 16px;
-
     border: 1px solid var(--toggle-borderColor);
     background: var(--toggle-backgroundColor);
     border-radius: 24px;
-    transition: all 200ms ease-out;
+    margin-right: 16px;
+    transition: all 200ms ease-out; 
 }
 
-.c-custom-toggle__fake-input::after {
-    content: ''; /* VERPLICHT voor elke ::before of ::after !!! */
+.c-custom-toggle__fake-input::after{
+    content: ''; /* verplicht*/
     display: block;
-    width: 22px; /* 24px van parent -1px bovenaan (border) en 1 px onderaan (border) */
-    height: 22px; /* 24px van parent -1px bovenaan (border) en 1 px onderaan (border) */
+
+    width: 22px; /*24px van parent onderaan -1px en bovenaan ook -1 */
+    height: 22px; /*24px van parent onderaan -1px en bovenaan ook -1 */
 
     background: white;
     border-radius: 50%;
-    box-shadow: 0 1px 3px rgb (0,0,0, 0.16);
-    transform: translateX( var(--toggle-translateX) );
+    box-shadow: 0 1px 3px (0,0,0, 0.16);
+    transform: translateX( var(--toggle-translateX));
 
-    will-change: transform; /* puur voor performance, de browser weet dat dit kan aanpassen */
+    will-change: transform; /* puur voor performance*/
     transition: transform 200ms ease-out; 
-    transform: translateX(var(--toggle-translateX));
+
 }
 
 /*.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
     transform: translateX(24px);
 }*/
 
-.c-option--hidden:checked + .c-custom-toggle {
-    --toggle-translateX: 24px; /* de ::after zal aanpassen, want dit volgt de scope van de parent */
-    --toggle-borderColor: var(--color-alpha-dark);
-    --toggle-backgroundColor: var(--color-alpha);
-}
+.c-option--hidden:checked + .c-custom-toggle  {
+    --toggle-translateX:24px; /*de after zal aanpassen want die volgt */
+    --toggle-borderColor:var(--color-alpha-dark) ; 
+    --toggle-backgroundColor: var(--color-alpha) ; 
 
-.c-toggle-list__item + .c-toggle-list__item {
-    /* een  */
-    margin-top: 24px;
+    --toggle-boxShadow: 0 0 0 0 ; /* lege standard box*shadow*/
+    
 }
 
 .c-custom-toggle--inverted {
     flex-direction: row-reverse;
     justify-content: space-between;
     width: 100%;
-    display: flex;
 }
 
-.c-custom-toggle--inverted .c-custom-toggle__fake-input {
+.c-custom-toggle--inverted .c-custom-toggle__fake-input{
     margin-right: 0;
 }
 
-/* SELECT */
-.c-custom-select {
+/* has error
+.c-option--hidden.has. + .c-custom-toggle {
+    --toggle-translateX:24px; /*de after zal aanpassen want die volgt 
+    --toggle-borderColor:var(--color-alpha-dark) ; 
+    --toggle-backgroundColor: var(--color-alpha) ; 
+
+    --toggle-boxShadow: 0 0 0 0 ; /* lege standard box*shadow*/
+  /*  
+} 
+/*
+
+*/
+
+.c-custom-select{
     display: block;
     position: relative;
+    
+    
 }
 
-.c-custom-select__symbol {
+
+.c-custom-select__symbol{
     position: absolute;
     right: 12px;
     top: 12px;
 
-    width: 24px; 
-    height: 24px;
-
-    fill: var(--color-neutral-x-light);
     pointer-events: none;
+
+
+    width: 24px;
+    width: 24px;
+    fill: var(--color-neutral-x-light);
+
 }
- 
+
+
+
+
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
- 
+
 /*
     Utilities: color
     ---
     Utility classes to put specific colors onto elements
 */
- 
+
 .u-color-neutral {
     color: var(--color-neutral);
 }
- 
+
 .u-color-neutral-dark {
     color: var(--color-neutral-dark);
 }
- 
+
 /*
     Utilities: spacing
     ---
     Utility classes to put specific margins and paddings onto elements
 */
- 
+
 .u-pt-clear {
     padding-top: 0 !important;
 }
- 
+
 .u-mb-clear {
     margin-bottom: 0 !important;
 }
- 
+
 .u-mb-xs {
     margin-bottom: 4px !important;
 }
- 
+
 .u-mb-sm {
     margin-bottom: 8px !important;
 }
- 
+
 .u-mb-md {
     margin-bottom: 16px !important;
 }
- 
+
 .u-mb-lg {
     margin-bottom: 32px !important;
 }
- 
+
 .u-mb-xl {
     margin-bottom: 48px !important;
 }
- 
+
 /*
     Utilities: max-width
     ---
     Utility classes to put specific max widths onto elements
 */
- 
+
 .u-max-width-xs {
     max-width: 27em !important;
 }
- 
+
 .u-max-width-sm {
     max-width: 39em !important;
 }
- 
+
 .u-max-width-md {
     max-width: 50em !important;
 }
- 
+
 .u-max-width-lg {
     max-width: 63.5em !important;
 }
- 
+
 .u-max-width-none {
     max-width: none !important;
 }
- 
- 
+
+
 /*
     Utilities: align
     ---
     Utility classes align text or components
 */
- 
+
 .u-align-text-center {
     text-align: center;
 }
- 
+
 .u-align-center {
     margin: 0 auto;
 }
- 
+
 /*
     Utilities: text
     Utility classes to create smaller or bigger test
 */
- 
+
 .u-text-sm {
     font-size: 14px;
 }
- 
+
 /*
     Utility: Widths
     ---
     Utility classes to put specific widths onto elements
     Will be mostly used on o-layout__item
 */
- 
+
 .u-width-auto {
     width: auto !important;
 }
- 
+
 .u-1-of-2 {
     width: 50% !important;
 }
- 
+
 .u-1-of-3 {
     width: 33.3333333333% !important;
 }
- 
+
 .u-2-of-3 {
     width: 66.6666666667% !important;
 }
- 
+
 .u-1-of-4 {
     width: 25% !important;
 }
- 
+
 .u-3-of-4 {
     width: 75% !important;
 }
- 
+
 .u-1-of-5 {
     width: 20% !important;
 }
- 
+
 .u-2-of-5 {
     width: 40% !important;
 }
- 
+
 .u-3-of-5 {
     width: 60% !important;
 }
- 
+
 .u-4-of-5 {
     width: 80% !important;
 }
- 
+
 .u-1-of-6 {
     width: 16.6666666667% !important;
 }
- 
+
 .u-5-of-6 {
     width: 83.3333333333% !important;
 }
- 
+
 @media (min-width: 576px) {
     .u-1-of-2-bp1 {
         width: 50% !important;
@@ -1110,7 +1173,7 @@ input::placeholder {
         width: 83.3333333333% !important;
     }
 }
- 
+
 @media (min-width: 768px) {
     .u-1-of-2-bp2 {
         width: 50% !important;
@@ -1146,7 +1209,7 @@ input::placeholder {
         width: 83.3333333333% !important;
     }
 }
- 
+
 @media (min-width: 992px) {
     .u-1-of-2-bp3 {
         width: 50% !important;
@@ -1182,7 +1245,7 @@ input::placeholder {
         width: 83.3333333333% !important;
     }
 }
- 
+
 @media (min-width: 1200px) {
     .u-1-of-2-bp4 {
         width: 50% !important;
@@ -1218,11 +1281,11 @@ input::placeholder {
         width: 83.3333333333% !important;
     }
 }
- 
+
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
- 
+
 /*
     Media Queries
     ---
@@ -1230,34 +1293,34 @@ input::placeholder {
     These examples override the primary ('mobile first') styles.
     USE THEM INLINE!
 */
- 
+
 /* Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in mobile first design
 */
- 
+
 /* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {}
 */
- 
+
 /* Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {}
 */
- 
+
 /* Large devices (landscape tablets, desktops, 992px and up)
 @media (min-width: 992px) {}
 */
- 
+
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}
 */
- 
+
 /*
     Print styles.
     ---
     Inlined to avoid the additional HTTP request:
     http://www.phpied.com/delay-loading-your-print-css/
 */
- 
+
 @media print {
     *,
     *:before,
